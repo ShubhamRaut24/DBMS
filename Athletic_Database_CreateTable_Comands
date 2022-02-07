@@ -1,0 +1,70 @@
+CREATE TABLE `Athelit_Database`.`Employee` (
+  `empno` INT NOT NULL,
+  `empname` VARCHAR(60) NOT NULL,
+  `department` VARCHAR(60) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`empno`));
+  
+  CREATE TABLE `Athelit_Database`.`Facility` (
+  `FacNo` INT NOT NULL,
+  `FacName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`FacNo`),
+  );
+  
+  CREATE TABLE `Athelit_Database`.`Location` (
+  `locno` VARCHAR(8) NOT NULL,
+  `facno` VARCHAR(45) NOT NULL,
+  `locname` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`locno`));
+  
+  ALTER TABLE `Athelit_Database`.`Location` 
+ADD INDEX `FK_FACNO_idx` (`facno` ASC) VISIBLE;
+;
+ALTER TABLE `Athelit_Database`.`Location` 
+ADD CONSTRAINT `FK_FACNO`
+  FOREIGN KEY (`facno`)
+  REFERENCES `Athelit_Database`.`Facility` (`FacNo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  CREATE TABLE `Athelit_Database`.`Resource` (
+  `resno` VARCHAR(8) NOT NULL,
+  `resname` VARCHAR(45) NOT NULL,
+  `rate` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`resno`));
+  
+  
+  CREATE TABLE `Athelit_Database`.`EventRequest` (
+  `eventno` VARCHAR(8) NOT NULL,
+  `dateheld` DATE NOT NULL,
+  `datereq` DATE NOT NULL,
+  `facno` VARCHAR(8) NOT NULL,
+  `custno` VARCHAR(8) NOT NULL,
+  `dateauth` DATE NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `estcost` VARCHAR(45) NOT NULL,
+  `estaudience` VARCHAR(45) NOT NULL,
+  `budno` VARCHAR(45) NULL,
+  PRIMARY KEY (`eventno`));
+  
+  
+  CREATE TABLE `Athelit_Database`.`EventPlan` (
+  `planno` VARCHAR(8) NOT NULL,
+  `eventno` VARCHAR(8) NOT NULL,
+  `workdate` DATE NOT NULL,
+  `notes` VARCHAR(45) NULL,
+  `activity` VARCHAR(45) NOT NULL,
+  `empno` VARCHAR(45) NULL,
+  PRIMARY KEY (`planno`));
+  
+  CREATE TABLE `Athelit_Database`.`EventPlanLine` (
+  `PlanNo` VARCHAR(8) NOT NULL,
+  `LineNo` VARCHAR(8) NOT NULL,
+  `TimeStart` VARCHAR(30) NOT NULL,
+  `TimeEnd` VARCHAR(45) NOT NULL,
+  `NumberFld` INT NOT NULL,
+  `LocNo` VARCHAR(8) NOT NULL,
+  `ResNo` VARCHAR(8) NOT NULL,
+  PRIMARY KEY (`PlanNo`, `LineNo`));
+

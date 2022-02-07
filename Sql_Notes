@@ -1,0 +1,63 @@
+*create table syntax-
+CREATE TABLE <table-name> ( <column-list> [<constraint-list>] )
+
+*Example- CREATE TABLE corporation
+ (corp_id SMALLINT,
+  name VARCHAR(30),
+  CONSTRAINT pk_corporation PRIMARY KEY (corp_id)
+ );
+
+* CONSTRAINT and its syntax
+
+ 1) CONSTRAINT PKCourse PRIMARY KEY(CourseNo)
+ 
+ 2) CONSTRAINT PKEnrollment PRIMARY KEY (OfferNo, StdNo)
+ 
+ 3) CONSTRAINT UniqueCrsDesc UNIQUE (CrsDesc)
+ 
+ 4) CONSTRAINT FKOfferNo FOREIGN KEY (OfferNo) REFERENCES Offering
+ 
+ 5) CONSTRAINT OffCourseNoReq NOT NULL
+ 
+ *Types of CONSTRAINT
+   1 inline 
+   2 external
+   
+   inline eg- CREATE TABLE employee (
+              emp_id NUMBER(10) PRIMARY KEY,
+              first_name VARCHAR2(200),
+              last_name VARCHAR2(200),
+              dept_id NUMBER(10) FOREIGN KEY REFERENCES department);
+              
+   External eg - CREATE TABLE employee (
+              emp_id NUMBER(10) ,
+              first_name VARCHAR2(200),
+              last_name VARCHAR2(200),
+              dept_id NUMBER(10)  
+              CONSTRAINT empid PRIMARY KEY(emp_id),
+              CONSTRAINT deptid FOREIGN KEY(dept_id) REFERENCES department);
+              
+              
+   *Check Constraint 
+   -used to check the constaints of colums
+   -use check keyword here 
+   
+   Examples 
+   1) CONSTRAINT ValidGPA 
+      CHECK ( StdGPA BETWEEN 0 AND 4 )
+
+   2) CONSTRAINT ValidStdClass 
+      CHECK ( StdClass IN ('FR','SO', 'JR', 'SR' )
+
+   3) CONSTRAINT OffYearValid 
+      CHECK ( OffYear > 1970 )
+
+
+
+
+         
+   
+              
+              
+              
+              
