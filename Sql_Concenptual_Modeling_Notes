@@ -1,0 +1,18 @@
+A Conceptual Data Model is a diagram identifying the business concepts (entities) and 
+the relationships between these concepts in order to gain, reflect, and document understanding 
+of the organization’s business, from a data perspective.
+
+“It shows how the business world sees information. It suppresses non-critical details in order 
+to emphasize business rules and user objects. It typically includes only significant entities which have
+business meaning, along with their relationships.”
+
+A Conceptual Data Model usually takes the form of an Entity Relationship Diagram (ERD) or Object Role Model (ORM). 
+The Conceptual Data Model typically does not contain attributes, or if it does only significant attributes.
+
+The Conceptual Data Model should reflect relationships from a historical, longitudinal perspective.
+
+For example, a relationship between Store and Employee may usually be considered a one-to-many, but when viewed from a historical perspective perhaps the relationship may actually be many-to-many – what if the Employee begins work at another Store?
+
+In addition, Conceptual Data Models should reflect both as-is and to-be in the same model. To-be here does not mean what the data entities/relationships will be in the solution to be developed; rather, to-be here represents changes to the business that are currently in the works, or are considered highly probable.
+
+A caution is to make sure that the distinction is clearly made on the model when an entity or relationship is “to-be” – perhaps use a different color for this. Capturing “to be” entities/relationships allows for the possibility of designing in flexibility (within reason) into your solution.
