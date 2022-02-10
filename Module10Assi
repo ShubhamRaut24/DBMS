@@ -1,0 +1,40 @@
+  
+  Q1) Ans
+  1. Customer(CustNo, CustFirstName, CustLastName, CustCity, CustState, CustZip, CustBal)
+
+  2. Employee(EmpNo, supempno, EmpFirstName, EmpLastName, EmpPhone, EmpEmail, EmpDeptName, EmpCommRate)
+             FOREIGN KEY(supempno) REFERENCES Employee
+
+  3. Product(ProdNo, ProdName, ProdQOH, ProdPrice, ProdNextShipDate)
+
+  4. Order(OrdNo, CustNo, EmpNo, OrdDate, OrdName, OrdCity, OrdZip)
+	   FOREIGN KEY(Custno) REFERENCES customer
+	   FOREIGN KEY(empno) REFERENCES employee
+	   CustNo NOT NULL
+
+  5. Contains(OrdNo, ProdNo, Qty)
+	     FOREIGN KEY(ordno) REFERENCES order
+ 	     FOREIGN KEY(prodno) REFERENCES product
+ 	     
+ 	     
+  Q2) Ans
+    
+   1. Customer(CustNo, CustFirstName, CustLastName, CustCity, CustState, CustZip, CustBal)
+
+   2. Employee(EmpNo, supempno, EmpFirstName, EmpLastName, EmpPhone, EmpEmail, EmpDeptName, EmpCommRate)
+		FOREIGN KEY(supempno) REFERENCES Employee
+
+   3. Product(ProdNo, ProdName, ProdQOH, ProdPrice, ProdNextShipDate)
+
+   4.Order(OrdNo, CustNo, EmpNo, OrdDate, OrdName, OrdCity, OrdZip)
+		FOREIGN KEY(custno) REFERENCES customer
+		FOREIGN KEY(empno) REFERENCES employee
+		CustNo NOT NULL
+
+   5.OrderLine(OrdNo, ProdNo, Qty)      (Used the identification dependency rule to add two components (OrdNo and ProdNo) to the primary key of theOrderLine table)
+		FOREIGN KEY(ordno) REFERENCES order
+ 		FOREIGN KEY(prodno) REFERENCES product 
+ 		
+ 		
+ 		   
+   	     
